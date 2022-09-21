@@ -1,0 +1,96 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 62.5%;
+	--dark: #292C35;
+	--light: #F1F1F1;
+	--label: #111;
+}
+
+body {
+  background-color: var(--light);
+}
+
+body.dark {
+  background-color: var(--dark);
+}
+
+.switch-container { 
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+  width: 12rem;
+}
+
+.switch {
+  position: absolute;
+  margin: 0;
+  visibility: hidden;
+}
+
+/* pegue o primeiro elemento depois do primeiro seletor */
+.switch + label { 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+
+  cursor: pointer;
+}
+
+.switch-shadow + label {
+  gap: 3.1rem;
+  padding: 0.6rem;
+  width: 14rem;
+  height: 6rem;
+  background-color: var(--label);
+  border-radius: 6rem;
+  transition: background .4s;
+
+  box-shadow: 0 .2rem .5rem rgba(0, 0, 0, 0.5);
+}
+
+.switch-shadow + label:before,
+.switch-shadow + label:after {
+  content: '';
+  display: block;
+  position: absolute;
+}
+
+.switch-shadow + label:before {
+  top: .2rem;
+  left: .2rem;
+  bottom: .2rem;
+  right: .2rem;
+  /* background-color:var(--label); */
+  border-radius: 6rem;
+  transition: background .4s;
+}
+
+.switch-shadow + label:after {
+  top: .4rem;
+  left: .4rem;
+  bottom: .4rem;
+  width: 5.6rem;
+  background-color: #dddddd;
+  border-radius: 5.2rem;
+  transition: margin .4s, background .4s;
+}
+
+.switch-shadow:checked + label {
+  background-color: var(--label);
+}
+
+.switch-shadow:checked + label:after {
+  margin-left: 7rem;
+}
+
+label img {
+  margin-right: 1.5rem;
+  height: 4rem;
+}
